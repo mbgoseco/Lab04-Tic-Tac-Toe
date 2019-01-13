@@ -7,6 +7,6 @@ Tic-Tac-Toe in crystal clear, high resolution, ASCII graphics! Up to 2 players, 
 Each player begins by entering their names. Player 1 is always "X", player 2 is always "O", and player 1 always goes first. Players take turns choosing a position on the tic-tac-toe grid to place their mark, until one player gets three in a row in any direction or a draw is reached.
 
 ## Screenshots
-![pic1]()
-![pic2]()
-![pic3]()
+![pic1](https://github.com/mbgoseco/Lab04-Tic-Tac-Toe/blob/master/assets/names.PNG)
+![pic2](https://github.com/mbgoseco/Lab04-Tic-Tac-Toe/blob/master/assets/game.PNG)
+![pic3](https://github.com/mbgoseco/Lab04-Tic-Tac-Toe/blob/master/assets/winner.PNG)
