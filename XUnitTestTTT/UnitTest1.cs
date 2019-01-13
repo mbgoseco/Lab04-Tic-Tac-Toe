@@ -44,7 +44,19 @@ namespace XUnitTestTTT
             Position testCoords = Player.PositionForNumber(6);
             Assert.Equal(1, testCoords.Row);
             Assert.Equal(2, testCoords.Column);
+        }
 
+        // Tests to confirm that the game knows which player the current turn belongs to.
+        [Fact]
+        public void PlayerTwosTurn()
+        {
+            Player p1 = new Player();
+            p1.IsTurn = false;
+            Player p2 = new Player();
+            p2.IsTurn = true;
+            Game game = new Game(p1, p2);
+
+            Assert.Equal(game.PlayerTwo, game.NextPlayer());
         }
     }
 }
