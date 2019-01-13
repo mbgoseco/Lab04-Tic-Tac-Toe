@@ -19,9 +19,11 @@ namespace Lab04_TicTacToe
             playerTwo.Marker = "O";
             playerTwo.IsTurn = false;
 
+            // Creates new instance of game
             Game newGame = new Game(playerOne, playerTwo);
             Console.Clear();
 
+            // Game logic begins here, returns result for winner when game is finished
             Player winner = newGame.Play();
             if (winner == null)
             {
