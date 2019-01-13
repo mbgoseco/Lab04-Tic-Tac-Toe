@@ -36,5 +36,15 @@ namespace XUnitTestTTT
 
             Assert.True(game.PlayerTwo.IsTurn);
         }
+
+        // Tests to confirm that the position the player inputs correlates to the correct index of the game board array.
+        [Fact]
+        public void NumberMatchesCoords()
+        {
+            Position testCoords = Player.PositionForNumber(6);
+            Assert.Equal(1, testCoords.Row);
+            Assert.Equal(2, testCoords.Column);
+
+        }
     }
 }
