@@ -55,6 +55,7 @@ namespace Lab04_TicTacToe.Classes
                 Player currentPlayer = NextPlayer();
                 currentPlayer.TakeTurn(Board);
                 turns++;
+                Console.Clear();
                 Board.DisplayBoard();
 
                 if (CheckForWinner(Board))
@@ -110,7 +111,10 @@ namespace Lab04_TicTacToe.Classes
                 // return true if a winner has been reached.
                 if (a == "X" && b == "X" && c == "X")
                 {
-                    
+                    return true;
+                } else if (a == "O" && b == "O" && c == "O")
+                {
+                    return true;
                 }
 			
 			}

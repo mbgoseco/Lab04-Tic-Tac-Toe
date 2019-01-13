@@ -20,6 +20,7 @@ namespace Lab04_TicTacToe
             playerTwo.IsTurn = false;
 
             Game newGame = new Game(playerOne, playerTwo);
+            Console.Clear();
 
             Player winner = newGame.Play();
             if (winner == null)
