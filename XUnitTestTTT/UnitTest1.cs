@@ -21,5 +21,20 @@ namespace XUnitTestTTT
 
             Assert.True(game.CheckForWinner(game.Board));
         }
+
+        // Tests that players properly switch turns.
+        [Fact]
+        public void PlayersSwitch()
+        {
+            Player p1 = new Player();
+            p1.IsTurn = true;
+            Player p2 = new Player();
+            p2.IsTurn = false;
+            Game game = new Game(p1, p2);
+
+            game.SwitchPlayer();
+
+            Assert.True(game.PlayerTwo.IsTurn);
+        }
     }
 }
