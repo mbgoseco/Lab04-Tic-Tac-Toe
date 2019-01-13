@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab04_TicTacToe.Classes
 {
-    class Player
+    public class Player
     {
 		public string Name { get; set; }
 		/// <summary>
@@ -17,7 +17,11 @@ namespace Lab04_TicTacToe.Classes
 		/// </summary>
 		public bool IsTurn { get; set; }
 
-
+        /// <summary>
+        /// Asks the current player to choose a position on the game board. Returns the coordinates for that position.
+        /// </summary>
+        /// <param name="board">Game Board</param>
+        /// <returns>Coordinates for chosen position, Position(Row, Column)</returns>
 		public Position GetPosition(Board board)
 		{
 			Position desiredCoordinate = null;
@@ -31,7 +35,11 @@ namespace Lab04_TicTacToe.Classes
 
 		}
 
-
+        /// <summary>
+        /// Takes in a single digit position on the game board and returns in row, column coordinates.
+        /// </summary>
+        /// <param name="position">Position on the game board in single digits</param>
+        /// <returns>Position(Row, Column)</returns>
 		public static Position PositionForNumber(int position)
 		{
 			switch (position)
@@ -50,23 +58,32 @@ namespace Lab04_TicTacToe.Classes
 			}
 		}
 
-	
+	    /// <summary>
+        /// Begins the next player's turn. Asks them to choose a position and fills it with their marker if the position is not taken.
+        /// </summary>
+        /// <param name="board">Current game board</param>
 		public void TakeTurn(Board board)
 		{
 			IsTurn = true;
 
 			Console.WriteLine($"{Name} it is your turn");
 
-			Position position = GetPosition(board);
+            bool positionTaken;
+            do
+            {
+			    Position position = GetPosition(board);
 
-			if (Int32.TryParse(board.GameBoard[position.Row, position.Column], out int _))
-			{
-				board.GameBoard[position.Row, position.Column] = Marker;
-			}
-			else
-			{
-				Console.WriteLine("This space is already occupied");
-			}
+                if (Int32.TryParse(board.GameBoard[position.Row, position.Column], out int _))
+                {
+                    board.GameBoard[position.Row, position.Column] = Marker;
+                    positionTaken = false;
+                }
+                else
+                {
+                    Console.WriteLine("This space is already occupied");
+                    positionTaken = true;
+                }
+            } while (positionTaken == true);
 		}
 	}
 }
